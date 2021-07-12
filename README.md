@@ -40,17 +40,32 @@ The sample applications in this repository can be run with a Gazebo-based simula
     colcon build
     ```
 
-4. Now that the ROS application is built, we can source the application and run the simulation. Let's start with the line following sample.
+## Running the Sample Applications
+
+Now that the ROS application is built, we can source the application and run the simulation. To run the sample applications, simply source the built workspace then invoke the **roslaunch** file. Here are the three sample applications you can run.
+
+To start, ensure you are in the base workspace directory and the application is sourced.
+
+```bash
+cd ~/environment/aws-robomaker-jetbot-ros
+source install/setup.sh
+```
+
+1. In the first sample application, the Jetbot will perform a simple motion task. It will move 1 m forward, rotate 180 degrees in place, then will move another 1 m forward.
 
     ```bash
-    source install/setup.sh
+    roslaunch simple_motion simple_motion.launch
+    ```
+
+2. In the next sample application, the Jetbot will use a basic track with a line and follow the line:
+
+    ```bash
     roslaunch line_following line_following line_following_sim.launch
     ```
 
-5. Next, try running the SLAM and gmapping Demo. There are three worlds to choose from; `small_house`, `bookstore` and `small_warehouse`. Simply update the `world:=<world>` paramater with the world you would like to use!
+2. In the final sample, we will run a SLAM and gmapping demo. There are three worlds to choose from; `small_house`, `bookstore` and `small_warehouse`. Simply update the `world:=<world>` paramater with the world you would like to use!
 
     ```bash
-    source install/setup.sh
     roslaunch slam_demo explore_world.launch world:=bookstore
     ```
 
