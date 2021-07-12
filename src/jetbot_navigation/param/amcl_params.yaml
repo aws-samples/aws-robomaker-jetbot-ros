@@ -1,0 +1,12 @@
+# Please see http://wiki.ros.org/gmapping#Parameters for the full parameters.
+
+# Laser sensor characteristics.
+maxUrange: 6.0
+maxRange: 8.0
+lsigma: 0.01
+
+# Update parameters
+linearUpdate: 0.5
+angularUpdate: 0.785
+temporalUpdate: -1.0
+

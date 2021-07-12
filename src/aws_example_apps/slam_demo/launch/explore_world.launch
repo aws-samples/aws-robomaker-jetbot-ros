@@ -1,0 +1,22 @@
+<!-- example of simulation run with SLAM -->
+
+<launch>
+  
+  <arg name="world" default="bookstore" />
+
+  <!-- Gazebo world loading -->
+  <include file="$(eval find('aws_robomaker_'+arg('world')+'_world') + '/launch/view_'+arg('world')+'.launch')"/>
+
+  <!-- robot spawn -->
+  <include file="$(find jetbot_description)/launch/spawn.launch" />
+
+  <!-- rosbot description -->
+  <include file="$(find jetbot_description)/launch/jetbot_description.launch" />
+
+  <!-- run SLAM -->
+  <include file="$(find jetbot_slam)/launch/jetbot_slam.launch" />
+  <include file="$(find jetbot_navigation)/launch/jetbot_move_base.launch" />
+  
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find jetbot_description)/rviz/mapping_view.rviz" />
+  
+</launch>

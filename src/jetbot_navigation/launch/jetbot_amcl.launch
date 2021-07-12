@@ -1,0 +1,14 @@
+<!-- More information on ROS launch http://wiki.ros.org/roslaunch/XML -->
+
+<launch>
+  <!-- Reference frames for map, odometry, and robot, used within gmapping -->
+  <arg name="global_frame_id"  default="map"/>
+  <arg name="odom_frame_id" default="odom"/>
+  <arg name="base_frame_id" default="base_footprint"/>
+
+  <!-- amcl node for localization http://wiki.ros.org/amcl#amcl-1 -->
+  <node pkg="amcl" type="amcl" name="amcl">
+    <!-- Parameters for amcl -->
+    <rosparam command="load" file="$(find jetbot_navigation)/param/amcl_params.yaml" />
+  </node>
+</launch>

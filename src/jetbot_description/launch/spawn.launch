@@ -1,0 +1,28 @@
+<launch>
+  <!-- <node name="tf_footprint_base" pkg="tf" type="static_transform_publisher" -->
+  <!--   args="0 0 0 0 0 0 base_link base_footprint 40" /> -->
+  <param 
+    name="robot_description" 
+    command="$(find xacro)/xacro --inorder '$(find jetbot_description)/urdf/jetbot.urdf' stereo_camera:=false"/>
+ 
+    <arg name="x" default="0"/>
+    <arg name="y" default="0"/>
+    <arg name="z" default="0.1"/>
+ 
+    <node name="jetbot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
+          args="-urdf -param robot_description -model jetbot -x $(arg x) -y $(arg y) -z $(arg z)" />
+
+  <!-- <arg name="model" default="jetbot"/> -->
+  <!--  -->
+  <!-- <param name="robot_description"  -->
+  <!--   command="$(find xacro)/xacro &#45;&#45;inorder '$(find jetbot_description)/urdf/jetbot.urdf' stereo_camera:=false"/> -->
+  <!--  -->
+  <!-- <node  -->
+  <!--   name="urdf_spawner"  -->
+  <!--   pkg="gazebo_ros"  -->
+  <!--   type="spawn_model"  -->
+  <!--   respawn="false"  -->
+  <!--   output="screen"  -->
+  <!--   args="&#45;urdf &#45;model $(arg model) &#45;param robot_description &#45;z 1 &#45;x &#45;2 &#45;y &#45;2"/> -->
+  <!-- <node name="fake_joint_calibration" pkg="rostopic" type="rostopic" args="pub /calibrated std_msgs/Bool true" /> -->
+</launch>

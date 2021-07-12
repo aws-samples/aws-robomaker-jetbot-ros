@@ -1,0 +1,22 @@
+<package>
+  <name>aws_example_apps</name>
+  <version>1.0.0</version>
+  <description>
+      aws_example_apps contains ROS packages and code from the AWS RoboMaker curriculum.
+  </description>
+
+  <license>MIT</license>
+  <author email="aws-robomaker@amazon.com">AWS RoboMaker</author>
+  <maintainer email="aws-robomaker@amazon.com">AWS RoboMaker</maintainer>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>simple_motion</run_depend>
+  <run_depend>line_following</run_depend>
+  <run_depend>dance</run_depend>
+  <run_depend>slam_demo</run_depend>
+
+  <export>
+    <metapackage/> 
+  </export>
+</package>

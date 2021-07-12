@@ -1,0 +1,18 @@
+<!-- More information on ROS launch http://wiki.ros.org/roslaunch/XML -->
+
+<launch>
+  <!-- Reference frames for map, odometry, and robot, used within gmapping -->
+  <arg name="map_frame"  default="map"/>
+  <arg name="odom_frame" default="odom"/>
+  <arg name="base_frame" default="base_footprint"/>
+
+  <!-- Gmapping node for SLAM-->
+  <node pkg="gmapping" type="slam_gmapping" name="jetbot_slam_gmapping" output="screen">
+    <!-- Setting of the reference frames -->
+    <param name="map_frame"  value="$(arg map_frame)"/>
+    <param name="odom_frame" value="$(arg odom_frame)"/>
+    <param name="base_frame" value="$(arg base_frame)"/>
+    <!-- Parameters for gmapping, please see http://wiki.ros.org/gmapping -->
+    <rosparam command="load" file="$(find jetbot_slam)/param/gmapping_params.yaml" />
+  </node>
+</launch>

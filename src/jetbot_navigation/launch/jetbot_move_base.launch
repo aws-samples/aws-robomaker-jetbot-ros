@@ -1,0 +1,17 @@
+<!-- More information on ROS launch http://wiki.ros.org/roslaunch/XML -->
+
+<launch>
+  <!-- Reference frames for map, odometry, and robot, used within gmapping -->
+  <arg name="global_frame_id"  default="map"/>
+  <arg name="odom_frame_id" default="odom"/>
+  <arg name="base_frame_id" default="base_footprint"/>
+
+  <!-- move_base node for planning http://wiki.ros.org/move_base#Nodes -->
+  <node pkg="move_base" type="move_base" name="move_base" output="screen">
+    <rosparam file="$(find jetbot_navigation)/param/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find jetbot_navigation)/param/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find jetbot_navigation)/param/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find jetbot_navigation)/param/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find jetbot_navigation)/param/move_base_params.yaml" command="load" />
+  </node>
+</launch>

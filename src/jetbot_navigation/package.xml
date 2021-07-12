@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!-- Full information here http://wiki.ros.org/catkin/package.xml -->
+<package format="2">
+  <name>jetbot_navigation</name>
+  <version>0.1.0</version>
+  <description>
+    ROS package containing the launch file for running localizer and planner.
+  </description>
+
+  <license>MIT</license>
+  <author email="aws-robomaker@amazon.com">AWS RoboMaker</author>
+  <maintainer email="aws-robomaker@amazon.com">AWS RoboMaker</maintainer>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>amcl</depend>
+  <depend>map_server</depend>
+  <depend>move_base</depend>
+</package>
