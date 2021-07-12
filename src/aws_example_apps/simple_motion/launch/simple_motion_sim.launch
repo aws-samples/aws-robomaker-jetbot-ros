@@ -1,0 +1,15 @@
+<!-- More information on ROS launch http://wiki.ros.org/roslaunch/XML -->
+
+<launch>
+  <!-- 
+       Using simulation time means nodes initialized after this
+       will not use the system clock for its ROS clock and 
+       instead wait for simulation ticks. 
+       See http://wiki.ros.org/Clock
+       Note: set to false for deploying to a real robot.
+  -->
+  <arg name="use_sim_time" default="true"/>
+  <param name="use_sim_time" value="$(arg use_sim_time)"/>
+
+  <node pkg="simple_motion" type="simple_motion" name="simple_motion" output="screen"/>
+</launch>
