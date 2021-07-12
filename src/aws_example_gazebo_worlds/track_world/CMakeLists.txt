@@ -7,12 +7,12 @@ project(track_world)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED
+find_package(catkin REQUIRED COMPONENTS
   gazebo_ros	
 )
 
 ## System dependencies are found with CMake's conventions
-find_package(gazebo REQUIRED)
+# find_package(gazebo REQUIRED)
 
 
 ## Uncomment this if the package has a setup.py. This macro ensures
@@ -103,8 +103,7 @@ find_package(gazebo REQUIRED)
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES robomaker-jetbot
- CATKIN_DEPENDS gazebo_ros
- DEPENDS gazebo
+ DEPENDS gazebo_ros
 )
 
 ###########
