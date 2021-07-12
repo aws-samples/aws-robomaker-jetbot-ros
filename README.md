@@ -22,7 +22,7 @@ To run these sample applications, you can use the AWS RoboMaker IDE. For a full 
         ./setup.sh
     ```
 
-## Develop and interact with simulations in AWS RoboMaker
+## Build (and modify) the sample applications in the AWS RoboMaker IDE.  
 
 The sample applications in this repository can be run with a Gazebo-based simulation.
 
