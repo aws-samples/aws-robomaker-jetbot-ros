@@ -40,7 +40,7 @@ The sample applications in this repository can be run with a Gazebo-based simula
     colcon build
     ```
 
-## Running the Sample Applications
+## Running the sample applications
 
 Now that the ROS application is built, we can source the application and run the simulation. To run the sample applications, simply source the built workspace then invoke the **roslaunch** file. Here are the three sample applications you can run.
 
