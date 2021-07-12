@@ -57,7 +57,7 @@ source install/setup.sh
     roslaunch simple_motion simple_motion.launch
     ```
 
-2. In the next sample application, the Jetbot will use a basic track with a line and follow the line:
+2. In the next sample application, the Jetbot will navigate around a simple track by following a line.
 
     ```bash
     roslaunch line_following line_following line_following_sim.launch
