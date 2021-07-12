@@ -1,0 +1,4 @@
+- git: {local-name: src/aws_example_gazebo_worlds/aws-robomaker-small-warehouse-world, uri: "https://github.com/aws-robotics/aws-robomaker-small-warehouse-world.git", version: "master"}
+- git: {local-name: src/aws_example_gazebo_worlds/aws-robomaker-bookstore-world, uri: "https://github.com/aws-robotics/aws-robomaker-bookstore-world.git", version: "ros1"}
+- git: {local-name: src/aws_example_gazebo_worlds/aws-robomaker-house-world, uri: "https://github.com/aws-robotics/aws-robomaker-small-house-world.git", version: "ros1"}
+
