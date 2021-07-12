@@ -54,7 +54,7 @@ source install/setup.sh
 1. In the first sample application, the Jetbot will perform a simple motion task. It will move 1 m forward, rotate 180 degrees in place, then will move another 1 m forward.
 
     ```bash
-    roslaunch simple_motion simple_motion.launch
+    roslaunch simple_motion simple_motion_sim.launch
     ```
 
 2. In the next sample application, the Jetbot will navigate around a simple track by following a line.
