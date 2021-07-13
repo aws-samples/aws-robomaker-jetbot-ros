@@ -1,4 +1,4 @@
-# AWS-Enabled Waveshare Jetbot with NVidia Jetson Nano
+# AWS Sample Applications for the NVidia JetBot
 
 A collection of ROS sample applications for the NVidia JetBot to run in AWS RoboMaker. This repository includes the following sample applications:
 
