@@ -1,17 +1,18 @@
-# AWS Sample Applications for the NVidia JetBot
+# AWS Sample Applications for the Waveshare JetBot
+![Waveshare JetBot](/images/jetbot-aws.jpg)
 
-A collection of ROS sample applications for the NVidia JetBot to run in AWS RoboMaker. This repository includes the following sample applications:
+A collection of ROS sample applications for the Waveshare JetBot to run in AWS RoboMaker. This repository includes the following sample applications:
 
 - **Line Following:** This simple navigation application parses frames from the camera feed using OpenCV and instructs the Jetbot to follow a line.
-- **SLAM and GMapping:** This sample application will run move base, gmapping and SLAM - enabling you to generate maps of AWS-provided 3D worlds.
-- **Simple Motion** This sample application performs basic rotate in place and forward motion commands. 
+- **SLAM and GMapping:** This sample application will run move_base, gmapping and SLAM - enabling you to generate maps using AWS provided open source 3D worlds.
+- **Simple Motion:** This sample application performs basic rotation and forward motion commands.
 
-## Setup 
+## Setup
 
-To run these sample applications, you can use the AWS RoboMaker IDE. For a full description on how to setup and get started with the virtual deskop feature in AWS RoboMaker, [click here](https://aws.amazon.com/blogs/robotics/aws-announces-a-new-developer-desktop-feature-within-the-aws-robomaker-ide/).
+To run these sample applications, you can use the AWS RoboMaker IDE. For a full description on how to setup and get started with the virtual deskop feature in AWS RoboMaker, [See our blog](https://aws.amazon.com/blogs/robotics/aws-announces-a-new-developer-desktop-feature-within-the-aws-robomaker-ide/).
 
-1. Open AWS RoboMaker in the AWS console. Click on *Development Environments*. 
-2. Click *Create development environment*. It will take a few minutes to provision your IDE. Once done, it will open a new window. 
+1. Open AWS RoboMaker in the AWS console. Click on *Development Environments*.
+2. Click *Create Development environment*. It will take a few minutes to provision your IDE. Once provisioned, it will open a new window.
 3. In the terminal of the IDE (bottom pane), run the following commands:
 
     ```bash
@@ -22,18 +23,18 @@ To run these sample applications, you can use the AWS RoboMaker IDE. For a full 
         ./setup.sh
     ```
 
-## Build (and modify) the sample applications in the AWS RoboMaker IDE.  
+## Build (and modify) the sample applications using the AWS RoboMaker IDE.  
 
-The sample applications in this repository can be run with a Gazebo-based simulation.
+The sample applications in this repository can be run on a Gazebo simulation.
 
-1. Open a **Virtual Desktop** by clicking the virtual desktop button in the top navigation tool bar. This will open a pop-up window, if you are prompted, allow your browser to open the pop-up window. 
+1. Open a **Virtual Desktop** by clicking the virtual desktop button in the top navigation tool bar. This will open a pop-up window, if you are prompted, allow your browser to open the pop-up window.
 2. Move the new window adjacent to your IDE browser window. In the terminal of the IDE, set the display to the virtual desktop:
 
     ```bash
     export DISPLAY=:0
     ```
 
-3. Next, we will build the ROS application to run in the simulation. *Note: every time you make a code change to the ROS packages in this sample repository, you will need to run this command.*
+3. Next, we will build the ROS application to run in simulation. **Note: every time you make a code change to the ROS packages in this sample repository, you will need to run this command to re-build the application.**
 
     ```bash
     cd ~/environment/aws-robomaker-jetbot-ros
@@ -42,9 +43,9 @@ The sample applications in this repository can be run with a Gazebo-based simula
 
 ## Running the sample applications
 
-Now that the ROS application is built, we can source the application and run the simulation. To run the sample applications, simply source the built workspace then invoke the **roslaunch** file. Here are the three sample applications you can run.
+Now that the ROS application is built, we can source the application and run the simulation. To run the sample applications, simply source the built workspace then invoke the **roslaunch** file. Below are the three sample applications you can run.
 
-To start, ensure you are in the base workspace directory and the application is sourced.
+To start, ensure you are in the base workspace directory and the application has been sourced.
 
 ```bash
 cd ~/environment/aws-robomaker-jetbot-ros
@@ -69,8 +70,10 @@ source install/setup.sh
     roslaunch slam_demo explore_world.launch world:=bookstore
     ```
 
-**Congratulations!!** The simulation should now be running. To run another application, look through the **aws_example_apps** folder. In each example app, there is a launch folder with launch files you can run using the command structure above. 
+**Congratulations!!** The simulation should now be running. To run another application, look through the **aws_example_apps** folder. In each example app, there is a launch folder with launch files you can run using the command structure above.
+
+![Waveshare JetBot with a Lidar](/images/jetbot-lidar.jpg)
 
 ## Deploy and run with an NVidia Jetbot Kit
 
-Coming Soon! 
+Coming Soon!
