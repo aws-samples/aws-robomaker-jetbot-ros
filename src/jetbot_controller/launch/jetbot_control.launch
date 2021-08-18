@@ -1,0 +1,12 @@
+<launch>
+  <param name="/robot_description" command="$(find xacro)/xacro $(find jetbot_description)/urdf/jetbot.urdf" />
+  <param name="/jetbot/robot_description" command="$(find xacro)/xacro $(find jetbot_description)/urdf/jetbot.urdf" />
+  <rosparam file="$(find jetbot_controller)/config/jetbot_diff_drive_control.yaml" command="load"/>
+  
+  <node name="jetbot_controller" pkg="jetbot_controller" type="node" ns="/jetbot" output="screen" respawn="false" required="true">
+    <rosparam file="$(find jetbot_controller)/config/calibration.yaml" command="load"/>
+  </node>
+
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/jetbot" args="joint_state_controller base_controller" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen" />
+</launch>
