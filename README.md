@@ -61,7 +61,7 @@ source install/setup.sh
 2. In the next sample application, the Jetbot will navigate around a simple track by following a line.
 
     ```bash
-    roslaunch line_following line_following line_following_sim.launch
+    roslaunch line_following line_following_sim.launch
     ```
 
 2. In the final sample, we will run a SLAM and gmapping demo. There are three worlds to choose from; `small_house`, `bookstore` and `small_warehouse`. Simply update the `world:=<world>` paramater with the world you would like to use!
