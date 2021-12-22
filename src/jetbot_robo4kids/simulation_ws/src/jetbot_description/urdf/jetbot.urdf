@@ -1,0 +1,128 @@
+<?xml version="1.0" ?>
+<robot name="JetBot">
+  <property name="M_PI_2" value="1.570796327"/>
+
+  <joint name="JetBot__left_wheel_hinge" type="continuous">
+    <parent link="JetBot__chassis"/>
+    <child link="JetBot__left_wheel"/>
+    <origin rpy="0       0       1.57079" xyz="0.03     0.05125  0.03"/>
+    <axis xyz="1  0  0"/>
+  </joint>
+
+  <transmission name="tran_jetbot_left_wheel_hinge">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="JetBot__left_wheel_hinge">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_left_wheel">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+
+  <joint name="JetBot__right_wheel_hinge" type="continuous">
+    <parent link="JetBot__chassis"/>
+    <child link="JetBot__right_wheel"/>
+    <origin rpy="0       0       1.57079" xyz="0.03   -0.0595  0.03"/>
+    <axis xyz="1  0  0"/>
+  </joint>
+
+  <transmission name="tran_jetbot_right_wheel_hinge">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="JetBot__right_wheel_hinge">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_right_wheel">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <joint name="JetBot__camera_joint" type="fixed">
+    <parent link="JetBot__chassis"/>
+    <child link="JetBot__camera_link"/>
+    <origin rpy="0    0.25  0" xyz="0.055   0      0.0857"/>
+    <axis xyz="0.96891  0       0.2474"/>
+  </joint>
+
+  <link name="JetBot__chassis">
+    <inertial>
+      <mass value="1.0"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="1e-3" ixy="0" ixz="0" iyy="1e-3" iyz="0" izz="1e-3"/>
+    </inertial>
+    <collision name="JetBot__collision">
+      <origin rpy="1.57079  0       1.57079" xyz="0     0     0.043"/>
+      <geometry>
+        <mesh filename="package://jetbot_description/meshes/JetBot-v3-Chassis.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+    <visual name="JetBot__visual">
+      <origin rpy="1.57079  0       1.57079" xyz="0     0     0.043"/>
+      <geometry>
+        <mesh filename="package://jetbot_description/meshes/JetBot-v3-Chassis.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="JetBot__left_wheel">
+    <inertial>
+      <mass value="0.1"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="1e-3" ixy="0" ixz="0" iyy="1e-3" iyz="0" izz="1e-3"/>
+    </inertial>
+    <collision name="JetBot__collision">
+      <origin rpy="0  ${M_PI_2} 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.030" length="0.008"/>
+      </geometry>
+    </collision>
+    <visual name="JetBot__visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://jetbot_description/meshes/JetBot-v3-Wheel.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="JetBot__right_wheel">
+    <inertial>
+      <mass value="0.1"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="1e-3" ixy="0" ixz="0" iyy="1e-3" iyz="0" izz="1e-3"/>
+    </inertial>
+    <collision name="JetBot__collision">
+      <origin rpy="0  ${M_PI_2} 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.030" length="0.008"/>
+      </geometry>
+    </collision>
+    <visual name="JetBot__visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://jetbot_description/meshes/JetBot-v3-Wheel.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="JetBot__camera_link">
+    <inertial>
+      <mass value="0.01"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+    <visual name="JetBot__visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <box size="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <!-- ROS control plugin -->
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/</robotNamespace>
+    </plugin>
+  </gazebo>
+
+</robot>

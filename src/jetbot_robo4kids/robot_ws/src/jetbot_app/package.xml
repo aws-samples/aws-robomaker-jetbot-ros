@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>jetbot_app</name>
+  <version>1.0.0</version>
+  <description>
+    A custom AWS RoboMaker robot package with a JetBot
+  </description>
+  <license>MIT</license>
+  <author email="aws-robomaker@amazon.com">AWS RoboMaker</author>
+  <maintainer email="aws-robomaker@amazon.com">AWS RoboMaker</maintainer>
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>roscpp</depend>
+  <depend>rospy</depend>
+  <depend>std_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>aws-iot-sdk-python</depend>
+  <depend>adafruit-motorhat-pip</depend>
+  <depend>adafruit-ssd1306-pip</depend>
+  <depend>sparkfun-qwiic-scmd-pip</depend>
+  <depend>smbus</depend>
+</package>

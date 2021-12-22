@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>jetbot_sim_app</name>
+  <version>1.0.0</version>
+  <description>
+    A custom AWS RoboMaker simulation package with a JetBot in an empty Gazebo world.
+  </description>
+  <license>MIT</license>
+  <author email="aws-robomaker@amazon.com">AWS RoboMaker</author>
+  <maintainer email="aws-robomaker@amazon.com">AWS RoboMaker</maintainer>
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>rospy</depend>
+  <depend>std_msgs</depend>
+  <depend>gazebo_ros</depend>
+  <depend>gazebo_plugins</depend>
+  <depend>gazebo_ros_control</depend>
+  <depend>xacro</depend>
+  <depend>awsiotpythonsdk-pip</depend>
+  <depend>jetbot_description</depend>
+  <exec_depend>gazebo</exec_depend>
+</package>

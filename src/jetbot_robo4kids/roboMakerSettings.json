@@ -1,0 +1,118 @@
+{
+  "runConfigurations": [
+    {
+      "id": "JetBot_Cfg01",
+      "name": "JetBot Simulation",
+      "type": "colcon build",
+      "cfg": {
+        "workingDir": "./jetbot/simulation_ws",
+        "cmdArgs": ""
+      }
+    },
+    {
+      "id": "JetBot_Cfg02",
+      "name": "JetBot Simulation",
+      "type": "colcon bundle",
+      "cfg": {
+        "workingDir": "./jetbot/simulation_ws",
+        "cmdArgs": ""
+      }
+    },
+    {
+      "id": "JetBot_SimulationJob1",
+      "name": "JetBot Circle Simulation",
+      "type": "simulation",
+      "cfg": {
+          "simulationApp": {
+            "name": "jetbotCircleSimulation",
+            "sourceBundleFile": "./jetbot/simulation_ws/bundle/output.tar",
+            "architecture": "X86_64",
+            "s3Bucket": "<Update S3 Bucketname Here>",
+            "launchConfig": {
+              "packageName": "jetbot_sim_app",
+              "launchFile": "circle.launch",
+              "environmentVariables": {}
+            },
+            "simulationSoftwareSuite": {
+              "name": "Gazebo",
+              "version": "9"
+            },
+            "renderingEngine": {
+              "name": "OGRE",
+              "version": "1.x"
+            },
+            "robotSoftwareSuite": {
+              "name": "ROS",
+              "version": "Melodic"
+            }
+          },
+          "simulation": {
+            "maxJobDurationInSeconds": 28800,
+            "failureBehavior": "Fail",
+            "iamRole": "<Update IAM Role ARN Here>",
+            "outputLocation": "<Update S3 Bucketname Here>",
+            "tags": {}
+          }
+      }
+    },
+    {
+      "id": "JetBot_SimulationJob2",
+      "name": "JetBot Teleop Simulation",
+      "type": "simulation",
+      "cfg": {
+          "simulationApp": {
+            "name": "jetbotTeleopSimulation",
+            "sourceBundleFile": "./jetbot/simulation_ws/bundle/output.tar",
+            "architecture": "X86_64",
+            "s3Bucket": "<Update S3 Bucketname Here>",
+            "launchConfig": {
+              "packageName": "jetbot_sim_app",
+              "launchFile": "teleop.launch",
+              "environmentVariables": {
+                "IOT_ENDPOINT": "<Update IoT Endpoint Here>"
+              }
+            },
+            "simulationSoftwareSuite": {
+              "name": "Gazebo",
+              "version": "9"
+            },
+            "renderingEngine": {
+              "name": "OGRE",
+              "version": "1.x"
+            },
+            "robotSoftwareSuite": {
+              "name": "ROS",
+              "version": "Melodic"
+            }
+          },
+          "simulation": {
+            "maxJobDurationInSeconds": 28800,
+            "failureBehavior": "Fail",
+            "iamRole": "<Update IAM Role ARN Here>",
+            "outputLocation": "<Update S3 Bucketname Here>",
+            "vpcConfig": {
+              "subnets": [
+                "<Update Public Subnet 1 Here>",
+                "<Update Public Subnet 2 Here>"
+              ],
+              "securityGroups": [
+                "<Update Security Group Here>"
+              ],
+              "assignPublicIp": true
+            },
+            "tags": {}
+          }
+      }
+    },
+    {
+      "id": "JetBot_wf1",
+      "type": "workflow",
+      "name": "JetBot Simulation - Build and Bundle",
+      "runCfgIds": [
+        "JetBot_Cfg01",
+        "JetBot_Cfg02"
+      ]
+    }
+  ]
+}
+

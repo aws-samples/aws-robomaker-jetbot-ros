@@ -1,0 +1,4 @@
+<launch>
+  <node name="move" pkg="jetbot_app" type="move.py" />
+  <node name="teleop" pkg="jetbot_app" type="teleop.py" />
+</launch>
