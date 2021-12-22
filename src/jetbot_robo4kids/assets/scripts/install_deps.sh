@@ -19,8 +19,8 @@ IOTPOLICYNAME="JetBotPolicy"
 
 PROJECTNAME=$1
 ROBOMAKERFILE="../../roboMakerSettings.json"
-AWSCREDSFILE="../teleop/aws-iot.js"
-AWSIOTSFILE="../teleop/aws-exports.js"
+AWSCREDSFILE="../teleop/aws-exports.js"
+AWSIOTSFILE="../teleop/aws-iot.js"
 TELEOP1FILE="../../robot_ws/src/jetbot_app/nodes/teleop.py"
 TELEOP2FILE="../../simulation_ws/src/jetbot_sim_app/nodes/teleop.py"
 
@@ -121,9 +121,6 @@ aws iam create-role \
       },
       "Action": "sts:AssumeRoleWithWebIdentity",
       "Condition": {
-        "StringEquals": {
-          "cognito-identity.amazonaws.com:aud": "us-east-2:899362e4-26a3-4edb-afd5-fe8bb9980ffa"
-        },
         "ForAnyValue:StringLike": {
           "cognito-identity.amazonaws.com:amr": "unauthenticated"
         }
@@ -165,14 +162,17 @@ aws iot create-keys-and-certificate --set-as-active \
 --output text
 )
 
+
+echo "Iot Endpoint $IOTENDPOINT"
 #Update aws-exports.js
-echo "Updating aws-iot.js ..."
+echo "Updating aws-exports.js ..."
 AWSREGION=$(aws configure get region)
 sed -i "s/<Update PoolId Here>/$IDENTITYPOOLID/g" $AWSCREDSFILE
 sed -i "s/<Update Region Here>/$AWSREGION/g" $AWSCREDSFILE
 
 
 #Update aws-iot.js
+echo "Iot Endpoint $IOTENDPOINT"
 echo "Updating aws-iot.js ..."
 AWSREGION=$(aws configure get region)
 sed -i "s/<Update IoT Endpoint Here>/$IOTENDPOINT/g" $AWSIOTSFILE
