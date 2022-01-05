@@ -1,4 +1,0 @@
-<launch>
-  <node name="move" pkg="jetbot_app" type="move.py" />
-  <node name="circle" pkg="jetbot_app" type="circle.py" />
-</launch>
