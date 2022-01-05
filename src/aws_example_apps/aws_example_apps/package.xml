@@ -15,8 +15,9 @@
   <run_depend>line_following</run_depend>
   <run_depend>dance</run_depend>
   <run_depend>slam_demo</run_depend>
+  <run_depend>robo4kids</run_depend>
 
   <export>
-    <metapackage/> 
+    <metapackage/>
   </export>
 </package>

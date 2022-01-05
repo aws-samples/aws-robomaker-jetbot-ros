@@ -1,0 +1,42 @@
+adafruit-motorhat-pip:
+  debian:
+    pip:
+      packages: [Adafruit-MotorHAT]
+  ubuntu:
+    pip:
+      packages: [Adafruit-MotorHAT]
+adafruit-ssd1306-pip:
+  debian:
+    pip:
+      packages: [Adafruit-SSD1306]
+  ubuntu:
+    pip:
+      packages: [Adafruit-SSD1306]
+sparkfun-qwiic-scmd-pip:
+  debian:
+    pip:
+      packages: [sparkfun-qwiic-scmd]
+  ubuntu:
+    pip:
+      packages: [sparkfun-qwiic-scmd]
+smbus:
+  debian:
+    pip:
+      packages: [smbus]
+  ubuntu:
+    pip:
+      packages: [smbus]
+aws-iot-sdk-python:
+   debian:
+     pip:
+       packages: [AWSIoTPythonSDK]
+   ubuntu:
+     pip:
+       packages: [AWSIoTPythonSDK]
+greengrass-sdk-python:
+   debian:
+     pip:
+       packages: [greengrasssdk]
+   ubuntu:
+     pip:
+       packages: [greengrasssdk]
