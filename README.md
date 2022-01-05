@@ -102,7 +102,7 @@ You will be able to control de jetbot movement through some blockly code in your
 #### 2. Configure AWS region
 
 
-Run the following command in your Robomaker enviroment, change the <Region you are Using> for the region you are deploying this sample
+Run the following command in your Robomaker enviroment, change the "<Region you are Using>" for the region you are deploying this sample
 
  ```bash
     aws configure set default.region $<Region you are Using>
@@ -128,7 +128,14 @@ To start, ensure you are in the base workspace directory and the application has
     cd ~/environment/aws-robomaker-jetbot-ros
     source install/setup.sh
 ```   
-#### 5. Run the Blockly Interface
+
+#### 5. Launch the aplication
+
+```bash
+roslaunch jetbot_sim_app teleop.launch gui:=true
+```
+    
+#### 6. Run the Blockly Interface
 
 * In your own computer clone the github repository with the blockly interface
 
