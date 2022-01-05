@@ -77,7 +77,7 @@ source install/setup.sh
 ### Robo4Kids - Control your robot with blockly
 
 
-here you will be able to control de jetbot movement through some blockly code in your computer.
+You will be able to control de jetbot movement through some blockly code in your computer.
 
 #### 1. In order to perform some operations for this workshop, it is necessary to assign an IAM machine role to your Cloud9 environment.
 
@@ -133,7 +133,7 @@ To start, ensure you are in the base workspace directory and the application has
 * In your own computer clone the github repository with the blockly interface
 
 ```bash
-    git clone https://github.com/cataherrera/roboblockly.git
+    git clone https://github.com/cataherrera/robo4kids.git
 ```   
 * Locate the aws-iot.js and aws-exports.js files in /aws-robomaker-jetbot-ros/src/aws_example_apps/robo4kids/assets/teleop folder
 
