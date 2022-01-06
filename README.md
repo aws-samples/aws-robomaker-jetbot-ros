@@ -134,7 +134,7 @@ To start, ensure you are in the base workspace directory and the application has
 ```bash
 roslaunch jetbot_sim_app teleop.launch
 ```
-    
+
 #### 6. Run the Blockly Interface
 
 * In your ***own computer*** clone the github repository with the blockly interface
@@ -156,7 +156,7 @@ A window in your browser should open with the roboblockly interface, select the 
 Open both widows side by side. The Jetbot simulation and the blockly interface.
 Drag and drop the blocks and conected to each other to control your robot. Star by selecting the foward and move left block like in the picture, press Run Code and see what happends with the jebot simulation!
 
-![Blockly JetBot](/images/jetbot-blockly.jpg)
+![Blockly JetBot](/images/jetbot-blockly.png)
 
 
 
