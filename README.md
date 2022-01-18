@@ -137,14 +137,9 @@ roslaunch jetbot_sim_app teleop.launch
 
 #### 6. Run the Blockly Interface
 
-* In your ***own computer*** clone the github repository with the blockly interface
+* Download the src/aws_example_apps/robo4kids/robo4kids_webapp on to your ***own computer*** folder.
 
-```bash
-    git clone https://github.com/cataherrera/robo4kids.git
-```   
-* On the Robomaker enviroment locate the aws-iot.js and aws-exports.js files in /aws-robomaker-jetbot-ros/src/aws_example_apps/robo4kids/assets/teleop folder
-
-* Download aws-iot.js and aws-exports.js and save them in the roboblockly repository in the roboblockly/src directory in your computer.
+* the aws-iot.js and aws-exports.js robo4kids_webapp/src directory are the files that store the aws credentials
 
 * Run the web aplication, on the terminal in your computer inside the roboblockly directory run the following commands
 ```bash

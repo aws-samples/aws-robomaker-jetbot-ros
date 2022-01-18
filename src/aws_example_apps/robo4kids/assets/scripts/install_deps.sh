@@ -19,8 +19,8 @@ IOTPOLICYNAME="JetBotPolicy"
 
 # PROJECTNAME=$1
 ROBOMAKERFILE="../../roboMakerSettings.json"
-AWSCREDSFILE="../teleop/aws-exports.js"
-AWSIOTSFILE="../teleop/aws-iot.js"
+AWSCREDSFILE="../../robo4kids_webapp/src/aws-exports.js"
+AWSIOTSFILE="../../robo4kids_webapp/src/aws-iot.js"
 TELEOP2FILE="../../nodes/teleop.py"
 
 

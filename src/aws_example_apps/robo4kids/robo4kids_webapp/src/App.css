@@ -1,0 +1,76 @@
+#lvlArea {
+	height: 100%;
+	width: inherit;
+}
+#lvlSelection {
+	margin-top: 40px;
+	padding: 20px;
+	height: inherit;
+	width: inherit;
+}
+#introLevels {
+	font-size: 50px;
+	margin-left: 80px;
+	padding: 32px 55px !important;
+}
+#lvlOptions {
+	padding: 0px 30px;
+}
+#detailOptions {
+	width: 130%;
+	height: 80%;
+}
+#detailOptions th {
+	width: 25%;
+	height: 80%;
+	margin-top: 10px;
+	text-align: center;
+	word-wrap: normal;
+	display: inline-block;
+	padding: 10px 30px;
+}
+.buttonRow {
+	padding: 10px 10px;
+	margin: auto;
+	height: 80px;
+	width: 310px;
+}
+.titleRow {
+	text-align: center;
+	height: 40px;
+	width: 310px;
+	padding: 10px;
+	font-size: 25px;
+	font-family: Courier New, monospace;
+	color: #242d3c;
+	letter-spacing: 1px;
+	font-weight: bold;
+	position: relative;
+}
+.detailsRow {
+	text-align: center;
+	height: 100px;
+	width: 310px;
+}
+
+
+#instructionsArea {
+	background-color: #f8f8fa;
+}
+.nopadding {
+	padding: 0 !important;
+	margin: 0 !important;
+}
+.blocklyDiv {
+	height: calc(100vh - 230px);
+}
+#instructionsText {
+	padding: 20px;
+	font-size: 14px;
+}
+.list-title {
+	font-weight: bold;
+	font-size: 20px;
+	text-indent: 5px;
+	font-family: Courier New, monospace;
+}
