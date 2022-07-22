@@ -74,6 +74,91 @@ source install/setup.sh
 
 ![Waveshare JetBot with a Lidar](/images/jetbot-lidar.jpg)
 
+### Robo4Kids - Control your robot with blockly
+
+
+You will be able to control de jetbot movement through some blockly code in your computer.
+
+#### 1. In order to perform some operations for this workshop, it is necessary to assign an IAM machine role to your Cloud9 environment.
+
+* Create a IAM role:
+    * Select AWS Service - EC2 use case
+    * Attache following policies:
+        * AWSRoboMaker_FullAccess
+        * AWSIoTFullAccess
+        * IAMFullAccess
+        * AmazonCognitoPowerUser
+    * leave everything else as deffault and create role
+* Attach role to the EC2 intance
+    * go to the EC2 intance and selec the isntance with your robomaker enveriment name
+    * Click Actions > Security > Modify IAM role.
+    * Choose the role you recently created
+
+* Disable Cloud9's normal management of your credential
+    * On the Robomaker enviroment click the settings gear icon in the top-right corner of your Cloud9 environment.
+    * Scroll down and open the section for AWS Settings. Disable AWS managed temporary credentials. Close the preferences pane.
+
+
+#### 2. Configure AWS region
+
+
+Run the following command in your Robomaker enviroment, change the `<Region you are Using>` for the region you are deploying this sample
+
+ ```bash
+    aws configure set default.region $<Region you are Using>
+```
+
+#### 3. Install and create dependencies
+Run the following command in your Robomaker enviroment, this script will create the necesary requirments to connect through IoT to the jebtot as well as a cognito identity pool.
+
+ ```bash
+    cd ~/environment/aws-robomaker-jetbot-ros/src/aws_example_apps/robo4kids/assets/scripts
+    chmod +x  install_deps.sh
+    source install_deps.sh
+
+```
+#### 4. Next, we will re-build the ROS application to run in simulation.
+
+```bash
+    cd ~/environment/aws-robomaker-jetbot-ros
+    colcon build
+```   
+To start, ensure you are in the base workspace directory and the application has been sourced.
+```bash
+    cd ~/environment/aws-robomaker-jetbot-ros
+    source install/setup.sh
+```   
+
+#### 5. Launch the aplication
+
+```bash
+roslaunch jetbot_sim_app teleop.launch
+```
+
+#### 6. Run the Blockly Interface
+
+* Download the src/aws_example_apps/robo4kids/robo4kids_webapp on to your ***own computer*** folder.
+
+* the aws-iot.js and aws-exports.js robo4kids_webapp/src directory are the files that store the aws credentials
+
+* Run the web aplication, on the terminal in your computer inside the roboblockly directory run the following commands
+```bash
+    yarn install
+    yarn start
+```
+
+A window in your browser should open with the roboblockly interface, select the empty level and start moving your robot!
+Open both widows side by side. The Jetbot simulation and the blockly interface.
+Drag and drop the blocks and conected to each other to control your robot. Star by selecting the foward and move left block like in the picture, press Run Code and see what happends with the jebot simulation!
+
+![Blockly JetBot](/images/jetbot-blockly.png)
+
+
+
+TroubleShooting
+If the Blockly interface is not conecting with the simulation, check if the app is able to connect to the iot endpoint. One posible place to check is if the cognito identity pool, has  the  unauthrol-robo4kids attached to the Unauthenticated Rol. It should be atacched but if a problem happend when running the install_deps.sh it could be you are using a pool that doesnt have the role attached.
+
+
 ## Deploy and run with an NVidia Jetbot Kit
 
 Coming Soon!
